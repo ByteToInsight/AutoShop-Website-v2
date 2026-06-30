@@ -13,7 +13,7 @@ export function TestimonialsSection() {
   const testimonials = useDataStore((s) => s.testimonials);
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const [expandedId, setExpandedId] = useState<number | null>(null);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const prev = () => setActiveIndex((i) => (i === 0 ? testimonials.length - 1 : i - 1));
   const next = () => setActiveIndex((i) => (i === testimonials.length - 1 ? 0 : i + 1));
