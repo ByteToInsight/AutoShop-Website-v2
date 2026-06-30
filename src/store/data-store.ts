@@ -44,11 +44,11 @@ export interface VehicleData {
 }
 
 export interface BlogPost {
-  id: string;
+  id: string | number;
   slug: string;
   title: string;
   excerpt: string;
-  content: string;
+  content?: string;
   image: string;
   category: string;
   date: string;
@@ -56,12 +56,12 @@ export interface BlogPost {
 }
 
 export interface Testimonial {
-  id: string;
+  id: string | number;
   name: string;
   city: string;
   text: string;
   rating: number;
-  image?: string;
+  avatar?: string;
   vehicle?: string;
 }
 
@@ -127,7 +127,7 @@ export const useDataStore = create<DataState & DataActions>()(
             categories: staticCategories,
             brands: staticBrands,
             vehicleData: staticVehicleData as VehicleData,
-            blogPosts: staticBlogPosts,
+            blogPosts: staticBlogPosts as BlogPost[],
             testimonials: staticTestimonials,
             initialized: true,
           });
